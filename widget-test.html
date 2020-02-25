@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Webform Playground</title>
+  </head>
+  <body>
+    <div id="not-root"></div>
+
+    <button id="open-form">Click me to open form!</button>
+    <script src="/lib/main.js"></script>
+
+    <script>
+      Webform.mount({
+        parentElement: '#not-root',
+        triggerSelector: '#open-form',
+          searchOptions: {
+            accountId: 'harvard',
+            shelfDomain: 'api.shelf.io',
+            intentGroupId: 'chatbot'
+          },
+          categories: [{label: 'How to set up chat snippet on SSP?', text: 'How to set up chat snippet on SSP?'}, {label: 'What is the Difference Between a Loan and a Lease?', text: 'What is the Difference Between a Loan and a Lease?'}]
+      });
+    </script>
+  </body>
+</html>
