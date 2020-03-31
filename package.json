@@ -21,7 +21,7 @@
     "build": "TSC_COMPILE_ON_ERROR=true react-scripts build",
     "test": "TSC_COMPILE_ON_ERROR=true react-scripts test",
     "lint": "eslint ./src --fix --ext .js,.json,.ts,.tsx --quiet",
-    "build-widget": "NODE_ENV=production webpack --mode production --config ./webpack.config.js --env.production",
+    "build-widget": "webpack --mode production --config ./webpack.config.js --env.production",
     "run-widget": "npx http-server ./"
   },
   "eslintConfig": {
