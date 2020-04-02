@@ -42,7 +42,7 @@ Check `src` folder with widget code, change and run `yarn build-widget`
 
 ```
 src                # Exports + components
-├── api            # API calls for Dialogflow, Shelf
+├── api            # API calls for Shelf
 ├── i18n           # Localization
 └── types          # TS types for every component
 ```
