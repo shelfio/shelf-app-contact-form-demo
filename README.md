@@ -21,7 +21,7 @@
         //What user see on dropdown
         label: 'What is the Difference Between a Loan and a Lease?',
         //Possible terms for shelf search
-        text: 'What is the Difference Between a Loan and a Lease?'
+        intent: 'What is the Difference Between a Loan and a Lease?'
       }
     ]
   });
