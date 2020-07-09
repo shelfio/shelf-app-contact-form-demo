@@ -28,3 +28,25 @@ export const searchInLibrary = (
     })
     .then(gems => filter(gems, 'publicURL'));
 };
+
+export const searchInRecommendations = (text: string, options?: SearchOptions) => {
+  const domain = options?.shelfDomain || process?.env?.REACT_APP_API_HOST || API_HOST;
+
+  const accountId = options?.accountId || 'harvard';
+  const libraryIds = options?.libraryIds || [];
+  const url = `https://${domain}/recommendations/gems/recommendations_self_service`;
+
+  return fetch(url, {
+    method: 'POST',
+    body: JSON.stringify({
+      account_id: accountId,
+      library_ids: libraryIds,
+      text
+    })
+  })
+    .then(resp => {
+      return resp.json();
+    })
+    .then(response => response.recommendations)
+    .catch(() => []);
+};
