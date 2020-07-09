@@ -46,3 +46,29 @@ src                # Exports + components
 ├── i18n           # Localization
 └── types          # TS types for every component
 ```
+
+## How use widget with library recommendations:
+You don't need intent setup, just libraryIds(you can specify multiple) and labels in dropdown
+```html
+<!-- Mount point -->
+<div id="not-root"></div>
+<script src="/lib/main.js"></script>
+<script>
+  Webform.mount({
+    parentElement: 'body', // Mounting selector
+    triggerSelector: '[href="#open-contact-form"]', // selector to trigger opening of modal window
+    searchOptions: {
+      accountId: 'SHELF_ACCOUNT_ID',
+      libraryIds: ['LIBRARY_1', 'LIBRARY_2']
+    },
+    categories: [
+      {
+        //What user see on dropdown
+        label: 'What is the Difference Between a Loan and a Lease?',
+        //Possible terms for shelf search
+        intent: 'What is the Difference Between a Loan and a Lease?'
+      }
+    ]
+  });
+</script>
+```
