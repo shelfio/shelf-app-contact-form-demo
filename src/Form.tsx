@@ -47,13 +47,13 @@ class Form extends Component<WidgetProps> {
     this.setState({loadingSuggestions: true});
     let suggestedArticles: any[] = [];
     try {
-      if (this.props.searchOptions?.libraryIds) {
+      if (this.props.searchOptions?.libraryIds && onTop) {
         suggestedArticles = await searchInRecommendations(
-          onTop ? category.text || '' : category.label || category.text || '',
+          category.text || '',
           this.props.searchOptions
         );
       }
-      if (!this.props.searchOptions?.libraryIds) {
+      if (!this.props.searchOptions?.libraryIds || !onTop) {
         suggestedArticles = await searchInLibrary(
           category.text,
           this.props.searchOptions,
