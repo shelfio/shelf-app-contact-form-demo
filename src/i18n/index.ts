@@ -21,6 +21,23 @@ const resources = {
       submissionMessage: 'Your question has been sent. We will try to contact you within 48 hours.'
     }
   },
+  de: {
+    translation: {
+      placeholder: 'Bitte auswählen',
+      contact: 'Kontaktformular',
+      namePlaceholder: 'Name eingeben',
+      emailPlaceholder: 'Email eingeben',
+      'dropdown-category': 'Wählen Sie die Kategorie, unter die Ihre Anfrage fällt.',
+      name: 'Name',
+      email: 'Email Addresse',
+      problem: 'Beschreiben Sie Ihr Anliegen',
+      problem_placeholder: 'Wie können wir Ihnen helfen?',
+      articles: 'Diese Artikel könnten Ihre Anfrage beantworten:',
+      submit: 'SENDEN',
+      thanks: 'Vielen Dank für Ihre Anfrage',
+      submissionMessage: 'Ihre Anfrage wurde gesendet. Wir antworten normalerweise innerhalb von 48 Stunden.'
+    }
+  },
   uk: {
     translation: {
       placeholder: 'Оберіть категорію',

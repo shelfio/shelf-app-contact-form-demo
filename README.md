@@ -1,15 +1,74 @@
 # Web Form Demo
 
-## React dev scripts
-To develop it like a regular react app
-- `yarn start`
-- `yarn test`
+## How use widget:
 
-## Widget scripts 
- - Build widget from sources:  `yarn build-widget`
- - `yarn run-widget` and go to [here](http://127.0.0.1:8080/widget-test.html)
- - `yarn deploy-widget` to deploy it to s3 
-    
-## Document locally 
-- In [docs](/docs) directory
-- `yarn start-docs`
+```html
+<!-- Mount point -->
+<div id="not-root"></div>
+<script src="/lib/main.js"></script>
+<script>
+  Webform.mount({
+    parentElement: 'body', // Mounting selector
+    triggerSelector: '[href="#open-contact-form"]', // selector to trigger opening of modal window
+    searchOptions: {
+      accountId: 'SHELF_ACCOUNT_ID',
+      shelfDomain: 'api.shelf.io',
+      intentGroupId: 'pure-cloud-demo', // Shelf intentGroupId
+      searchIntentGroupId: 'pure-cloud-demo' // Shelf intentGroupId for free input
+    },
+    categories: [
+      {
+        //What user see on dropdown
+        label: 'What is the Difference Between a Loan and a Lease?',
+        //Possible terms for shelf search
+        intent: 'What is the Difference Between a Loan and a Lease?'
+      }
+    ]
+  });
+</script>
+```
+
+## Working example
+
+- install dependencies
+- `yarn run-widget` or `npm run run-widget`
+- open browser in `http://localhost:8080/widget-test.html`
+
+## Make changes in widget
+
+Check `src` folder with widget code, change and run `yarn build-widget`
+
+## Folder structure
+
+```
+src                # Exports + components
+├── api            # API calls for Shelf
+├── i18n           # Localization
+└── types          # TS types for every component
+```
+
+## How use widget with library recommendations:
+You don't need intent setup, just libraryIds(you can specify multiple) and labels in dropdown
+```html
+<!-- Mount point -->
+<div id="not-root"></div>
+<script src="/lib/main.js"></script>
+<script>
+  Webform.mount({
+    parentElement: 'body', // Mounting selector
+    triggerSelector: '[href="#open-contact-form"]', // selector to trigger opening of modal window
+    searchOptions: {
+      accountId: 'SHELF_ACCOUNT_ID',
+      libraryIds: ['LIBRARY_1', 'LIBRARY_2']
+    },
+    categories: [
+      {
+        //What user see on dropdown
+        label: 'What is the Difference Between a Loan and a Lease?',
+        //Possible terms for shelf search
+        intent: 'What is the Difference Between a Loan and a Lease?'
+      }
+    ]
+  });
+</script>
+```

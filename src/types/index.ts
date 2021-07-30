@@ -15,6 +15,7 @@ export interface SearchOptions {
   shelfDomain: string;
   intentGroupId: string;
   searchIntentGroupId?: string;
+  libraryIds?: string[];
 }
 
 export interface CategoryOption {
