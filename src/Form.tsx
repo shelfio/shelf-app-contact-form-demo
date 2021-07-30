@@ -12,7 +12,7 @@ import {
 import {debounce, every, map, size, take, uniqBy} from 'lodash';
 import {Translation} from 'react-i18next';
 import {AppState, CategoryOption, WidgetProps} from './types';
-import {searchInLibrary} from './api';
+import {searchInLibrary, searchInRecommendations} from './api';
 import './i18n';
 
 class Form extends Component<WidgetProps> {
@@ -45,14 +45,22 @@ class Form extends Component<WidgetProps> {
 
   selectCategory = async (category: CategoryOption, onTop?: boolean) => {
     this.setState({loadingSuggestions: true});
+    let suggestedArticles: any[] = [];
     try {
-      const suggestedArticles = await searchInLibrary(
-        category.text,
-        this.props.searchOptions,
-        category.intent,
-        onTop
-      );
-
+      if (this.props.searchOptions?.libraryIds && onTop) {
+        suggestedArticles = await searchInRecommendations(
+          category.text || '',
+          this.props.searchOptions
+        );
+      }
+      if (!this.props.searchOptions?.libraryIds || !onTop) {
+        suggestedArticles = await searchInLibrary(
+          category.text,
+          this.props.searchOptions,
+          category.intent,
+          onTop
+        );
+      }
       this.setState({
         category,
         suggestedArticles: take(
