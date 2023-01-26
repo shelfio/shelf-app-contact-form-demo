@@ -80,10 +80,7 @@ module.exports = {
   },
   resolve: {
     modules: [path.resolve(__dirname, '../../node_modules'), 'node_modules'],
-    extensions: ['*','.ts', '.tsx', '.js', '.json', '.png'],
-    alias: {
-      '@shelf/icons': path.resolve(__dirname, 'src/@shelf/icons/lib'),
-    }
+    extensions: ['*','.ts', '.tsx', '.js', '.json', '.png']
   },
-  target: "node"
+  target: "web"
 };

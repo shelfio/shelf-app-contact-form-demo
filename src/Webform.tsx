@@ -26,7 +26,7 @@ export default class Webform {
       } else {
         document.body.appendChild(el);
       }
-      const domNode = document.getElementById('root');
+      const domNode = el;
       const root = createRoot(domNode);
       root.render(component);
       Webform.el = el;
