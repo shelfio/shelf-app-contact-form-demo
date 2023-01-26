@@ -1,9 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import Form from './Form';
 
-ReactDOM.render(
+const domNode = document.getElementById('root');
+const root = createRoot(domNode);
+
+root.render(
   <Form
     isVisible={true}
     categories={[
@@ -14,6 +17,4 @@ ReactDOM.render(
       {label: 'Сталий розвиток', text: 'Сталий розвиток'},
       {label: 'Послуги', text: 'Послуги'}
     ]}
-  />,
-  document.getElementById('root')
-);
+  />);

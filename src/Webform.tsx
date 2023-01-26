@@ -1,10 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import Form from './Form';
 import {WidgetProps} from './types';
 
 export default class Webform {
   static el;
+  static root;
 
   static mount({parentElement = '', ...props}: {parentElement: string} & WidgetProps) {
     const component = <Form {...props} />;
@@ -25,8 +26,11 @@ export default class Webform {
       } else {
         document.body.appendChild(el);
       }
-      ReactDOM.render(component, el);
+      const domNode = document.getElementById('root');
+      const root = createRoot(domNode);
+      root.render(component);
       Webform.el = el;
+      Webform.root = root;
     }
     if (document.readyState === 'complete') {
       doRender();
@@ -41,7 +45,7 @@ export default class Webform {
     if (!Webform.el) {
       throw new Error('Webform is not mounted, mount first');
     }
-    ReactDOM.unmountComponentAtNode(Webform.el);
+    Webform.root.unmount();
     Webform.el.parentNode.removeChild(Webform.el);
     Webform.el = null;
   }

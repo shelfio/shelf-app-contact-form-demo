@@ -8,7 +8,7 @@ import {
   ModalHeader,
   SimpleDropdown,
   TextArea
-} from './@shelf/react-basic-components/lib/index.min.js';
+} from '@shelf/react-basic-components';
 import {debounce, every, map, size, take, uniqBy} from 'lodash';
 import {Translation} from 'react-i18next';
 import {AppState, CategoryOption, WidgetProps} from './types';
