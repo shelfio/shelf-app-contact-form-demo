@@ -20,7 +20,7 @@
     "redux-devtools-extension": "2.13.8",
     "redux-thunk": "2.3.0",
     "sass": "^1.57.1",
-    "typescript": "3.9.6"
+    "typescript": "3.9.10"
   },
   "scripts": {
     "start": "TSC_COMPILE_ON_ERROR=true react-scripts start",
